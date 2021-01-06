@@ -13,8 +13,11 @@ namespace BeadandoProjekt_Akasztofa_HQ86NN
 {
     public partial class Form1 : Form
     {
-        int y, x;
-
+        int y, x, darab;
+        Jatek jatek;
+        int db;
+        Random n = new Random();
+        string[] betolt = File.ReadAllLines("feladvanyok.csv", Encoding.Default);
         public Form1()
         {
             InitializeComponent();
@@ -38,6 +41,15 @@ namespace BeadandoProjekt_Akasztofa_HQ86NN
                 Controls.Add(Billentyuk[i]);
 
             }
+            Invalidate();
+            darab = betolt.Count();
+            db = n.Next(0, darab);
+            jatek = new Jatek(betolt[db]);
+            feladvany.Text = jatek.csillag;
+            //uzenet.Text = "";
+            hibak.Text = "";
+
         }
+
     }
 }
