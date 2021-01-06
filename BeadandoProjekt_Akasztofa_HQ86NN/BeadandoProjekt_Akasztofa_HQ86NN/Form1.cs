@@ -37,6 +37,7 @@ namespace BeadandoProjekt_Akasztofa_HQ86NN
                 Billentyuk[i].Tag = i;
                 x = 5 + (i % 12) * 40;
                 Billentyuk[i].Location = new Point(x, y);
+                Billentyuk[i].Click += new EventHandler(gombok);
                 Controls.Add(Billentyuk[i]);
 
             }
@@ -49,6 +50,19 @@ namespace BeadandoProjekt_Akasztofa_HQ86NN
             hibak.Text = "";
 
         }
+        protected void gombok(object sender, EventArgs e)
+        {
+           
+                Button b = sender as Button;
+                jatek.TippProperty = Convert.ToChar(b.Text.ToLower());
+                b.Visible = false;
+                feladvany.Text = jatek.feladvany;
+                hibak.Text = jatek.hibaszam;
+               
+            
+
+        }
+
 
     }
 }
