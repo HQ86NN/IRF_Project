@@ -23,7 +23,7 @@ namespace képernyőbillentyűzet
             int[] szélesség = new int[47];
             string[] karakter = new string[47];
 
-           /* for (int i = 0; i < 47; i++)
+           for (int i = 0; i < 47; i++)
             {
                 oszlop[i] = Convert.ToInt32(sr.ReadLine());
                 sor[i] = Convert.ToInt32(sr.ReadLine());
@@ -31,8 +31,8 @@ namespace képernyőbillentyűzet
                 szélesség[i] = Convert.ToInt32(sr.ReadLine());
                 karakter[i] = sr.ReadLine();
             }
-            sr.Close(); */
-            //MessageBox.Show(Convert.ToString(pozíció1[4]));
+            sr.Close(); 
+            MessageBox.Show(Convert.ToString(karakter[46]));
         }
     }
 }
