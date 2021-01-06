@@ -12,6 +12,7 @@ namespace BeadandoProjekt_Akasztofa_HQ86NN
         string kitalalando, seged = "";
         public int hibapont = 0;
         int tippekszama = 0;
+        public Eredmeny eredmeny;
 
 
         public Jatek(string kitalalando)
@@ -50,10 +51,12 @@ namespace BeadandoProjekt_Akasztofa_HQ86NN
             {
                 feladvany = "";
                 uzenet = "Gratulálok nyert! A megoldás:" + kitalalando;
+                eredmeny = new Eredmeny(kitalalando, hibaszam, true);
             }
             if (hibapont >= 9)
             {
                 uzenet = "vesztett! a megoldás:" + kitalalando;
+                eredmeny = new Eredmeny(kitalalando, hibaszam, false);
             }
 
         }

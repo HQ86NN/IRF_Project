@@ -34,10 +34,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.feladvany = new System.Windows.Forms.TextBox();
             this.uzenet = new System.Windows.Forms.Label();
+            this.eredmenygomb = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ujjatek
             // 
+            this.ujjatek.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ujjatek.Location = new System.Drawing.Point(12, 12);
             this.ujjatek.Name = "ujjatek";
             this.ujjatek.Size = new System.Drawing.Size(89, 39);
@@ -50,7 +52,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(625, 12);
+            this.label1.Location = new System.Drawing.Point(607, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 20);
             this.label1.TabIndex = 1;
@@ -58,7 +60,7 @@
             // 
             // hibak
             // 
-            this.hibak.Location = new System.Drawing.Point(688, 12);
+            this.hibak.Location = new System.Drawing.Point(670, 14);
             this.hibak.Name = "hibak";
             this.hibak.Size = new System.Drawing.Size(100, 20);
             this.hibak.TabIndex = 2;
@@ -89,11 +91,22 @@
             this.uzenet.Size = new System.Drawing.Size(0, 13);
             this.uzenet.TabIndex = 5;
             // 
+            // eredmenygomb
+            // 
+            this.eredmenygomb.Location = new System.Drawing.Point(443, 37);
+            this.eredmenygomb.Name = "eredmenygomb";
+            this.eredmenygomb.Size = new System.Drawing.Size(91, 31);
+            this.eredmenygomb.TabIndex = 6;
+            this.eredmenygomb.Text = "Eredmények";
+            this.eredmenygomb.UseVisualStyleBackColor = true;
+            this.eredmenygomb.Click += new System.EventHandler(this.eredmenygomb_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(861, 519);
+            this.ClientSize = new System.Drawing.Size(834, 462);
+            this.Controls.Add(this.eredmenygomb);
             this.Controls.Add(this.uzenet);
             this.Controls.Add(this.feladvany);
             this.Controls.Add(this.label2);
@@ -116,6 +129,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox feladvany;
         private System.Windows.Forms.Label uzenet;
+        private System.Windows.Forms.Button eredmenygomb;
     }
 }
 

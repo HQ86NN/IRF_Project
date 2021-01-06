@@ -8,6 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
+using System.Reflection;
+
 
 namespace BeadandoProjekt_Akasztofa_HQ86NN
 {
@@ -18,7 +21,12 @@ namespace BeadandoProjekt_Akasztofa_HQ86NN
         Jatek jatek;
         int db;
         Random n = new Random();
-        
+        List<Eredmeny> eredmenyek = new List<Eredmeny>();
+        Excel.Application xlApp;
+        Excel.Workbook xlWB;
+        Excel.Worksheet xlSheet;
+
+
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = this.CreateGraphics();
@@ -37,15 +45,66 @@ namespace BeadandoProjekt_Akasztofa_HQ86NN
         {
             InitializeComponent();
         }
+
+        private void eredmenygomb_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                xlApp = new Excel.Application();
+
+
+                xlWB = xlApp.Workbooks.Add(Missing.Value);
+
+
+                xlSheet = xlWB.ActiveSheet;
+
+                xlSheet.Cells[1, 1] = "Feladvány";
+                xlSheet.Cells[1, 2] = "Hibaszám";
+                xlSheet.Cells[1, 3] = "Nyert-e?";
+
+                for (int i = 0; i < eredmenyek.Count; i++)
+                {
+                    xlSheet.Cells[i + 2, 1] = eredmenyek[i].feladvany;
+                    xlSheet.Cells[i + 2, 2] = eredmenyek[i].hibaszam;
+                    if (eredmenyek[i].nyert)
+                    {
+                        xlSheet.Cells[i + 2, 3] = "igen";
+                    }
+                    else
+                    {
+                        xlSheet.Cells[i + 2, 3] = "nem";
+                    }
+                }
+                xlApp.Visible = true;
+                xlApp.UserControl = true;
+            }
+            catch (Exception ex) 
+            {
+                string errMsg = string.Format("Error: {0}\nLine: {1}", ex.Message, ex.Source);
+                MessageBox.Show(errMsg, "Error");
+                xlWB.Close(false, Type.Missing, Type.Missing);
+                xlApp.Quit();
+                xlWB = null;
+                xlApp = null;
+            }
+        }
+
         protected void MyButton_click(object sender, EventArgs e)
         {
-
-            Button b = sender as Button;
-            jatek.TippProperty = Convert.ToChar(b.Text.ToLower());
-            b.Visible = false;
-            feladvany.Text = jatek.feladvany;
-            uzenet.Text = jatek.uzenet;
-            hibak.Text = jatek.hibaszam;
+            if (jatek.eredmeny == null)
+            {
+                Button b = sender as Button;
+                jatek.TippProperty = Convert.ToChar(b.Text.ToLower());
+                b.Visible = false;
+                feladvany.Text = jatek.feladvany;
+                uzenet.Text = jatek.uzenet;
+                hibak.Text = jatek.hibaszam;
+                if (jatek.eredmeny != null)
+                {
+                    eredmenyek.Add(jatek.eredmeny);
+                }
+            }
         }
 
         private void ujjatek_Click_1(object sender, EventArgs e)
