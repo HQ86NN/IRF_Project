@@ -33,6 +33,23 @@ namespace BeadandoProjekt_Akasztofa_HQ86NN
             }
             sr.Close();
             MessageBox.Show(Convert.ToString(karakter[46]));
+
+
+            class GombTulajdonsagok
+        {
+            public int sor, oszlop, magassag, szelesseg;
+            public string karakter;
         }
-    }
+
+        GombTulajdonsagok[] gombok = new GombTulajdonsagok[47];
+
+        GombTulajdonsagok tulajdonsag = new GombTulajdonsagok();
+
+
+        tulajdonsag.sor = Convert.ToInt32(sr.ReadLine());
+
+
+
+        }
+}
 }
