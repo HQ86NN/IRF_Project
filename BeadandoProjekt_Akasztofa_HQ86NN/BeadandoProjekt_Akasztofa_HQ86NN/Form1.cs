@@ -59,9 +59,15 @@ namespace BeadandoProjekt_Akasztofa_HQ86NN
 
                 xlSheet = xlWB.ActiveSheet;
 
-                xlSheet.Cells[1, 1] = "Feladvány";
+                xlSheet.Cells[1, 1] = "Játszott feladványok";
                 xlSheet.Cells[1, 2] = "Hibaszám";
                 xlSheet.Cells[1, 3] = "Nyert-e?";
+                Excel.Range headerRange = xlSheet.get_Range(GetCell(1, 1), GetCell(1, 3));
+                headerRange.Font.Bold = true;
+                headerRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                headerRange.EntireColumn.AutoFit();
+                
+
 
                 for (int i = 0; i < eredmenyek.Count; i++)
                 {
@@ -78,6 +84,7 @@ namespace BeadandoProjekt_Akasztofa_HQ86NN
                 }
                 xlApp.Visible = true;
                 xlApp.UserControl = true;
+
             }
             catch (Exception ex) 
             {
@@ -88,6 +95,7 @@ namespace BeadandoProjekt_Akasztofa_HQ86NN
                 xlWB = null;
                 xlApp = null;
             }
+
         }
 
         protected void MyButton_click(object sender, EventArgs e)
@@ -132,11 +140,26 @@ namespace BeadandoProjekt_Akasztofa_HQ86NN
             uzenet.Text = "";
             hibak.Text = "";
         }
+        private string GetCell(int x, int y)
+        {
+            string ExcelCoordinate = "";
+            int dividend = y;
+            int modulo;
 
-        
+            while (dividend > 0)
+            {
+                modulo = (dividend - 1) % 26;
+                ExcelCoordinate = Convert.ToChar(65 + modulo).ToString() + ExcelCoordinate;
+                dividend = (int)((dividend - modulo) / 26);
+            }
+            ExcelCoordinate += x.ToString();
 
-        
-        
+            return ExcelCoordinate;
+        }
+
+
+
+
 
 
     }
