@@ -13,55 +13,71 @@ namespace BeadandoProjekt_Akasztofa_HQ86NN
 {
     public partial class Form1 : Form
     {
-        int y, x, darab;
+        int x, y, darab;
+        Akasztofa akaszto = new Akasztofa();
         Jatek jatek;
         int db;
         Random n = new Random();
-        string[] betolt = File.ReadAllLines("feladvanyok.csv", Encoding.Default);
+        
+        private void Form1_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = this.CreateGraphics();
+            if (jatek != null)
+            {
+                akaszto.rajzol(g, jatek.hibapont);
+            }
+
+
+
+        }
+
+        string[] Betolt = File.ReadAllLines("feladvanyok.csv", Encoding.Default);
+
         public Form1()
         {
             InitializeComponent();
         }
+        protected void MyButton_click(object sender, EventArgs e)
+        {
 
-        private void ujjatek_Click(object sender, EventArgs e)
+            Button b = sender as Button;
+            jatek.TippProperty = Convert.ToChar(b.Text.ToLower());
+            b.Visible = false;
+            feladvany.Text = jatek.feladvany;
+            uzenet.Text = jatek.uzenet;
+            hibak.Text = jatek.hibaszam;
+        }
+
+        private void ujjatek_Click_1(object sender, EventArgs e)
         {
             string abc = "AÁBCDEÉFGHIÍJKLMNOÓÖŐPQRSTUÚÜŰVWXYZ";
-            Button[] Billentyuk = new Button[35];
+            Button[] Bill = new Button[35];
             for (int i = 0; i < 35; i++)
             {
-                Billentyuk[i] = new Button();
-                Billentyuk[i].Text = abc[i].ToString();
-                y = 300 + (i / 12) * 40;
-                Billentyuk[i].Width = 35;
-                Billentyuk[i].Height = 35;
-                Billentyuk[i].Tag = i;
+                y = 200 + (i / 12) * 60;
                 x = 5 + (i % 12) * 40;
-                Billentyuk[i].Location = new Point(x, y);
-                Billentyuk[i].Click += new EventHandler(gombok);
-                Controls.Add(Billentyuk[i]);
-
+                Bill[i] = new Button();
+                Bill[i].Text = abc[i].ToString();
+                Bill[i].Width = 40;
+                Bill[i].Height = 40;
+                Bill[i].Tag = i;
+                Bill[i].Location = new Point(x, y);
+                Bill[i].Click += new EventHandler(MyButton_click);
+                Controls.Add(Bill[i]);
             }
             Invalidate();
-            darab = betolt.Count();
+            darab = Betolt.Count();
             db = n.Next(0, darab);
-            jatek = new Jatek(betolt[db]);
+            jatek = new Jatek(Betolt[db]);
             feladvany.Text = jatek.csillag;
-            //uzenet.Text = "";
+            uzenet.Text = "";
             hibak.Text = "";
-
         }
-        protected void gombok(object sender, EventArgs e)
-        {
-           
-                Button b = sender as Button;
-                jatek.TippProperty = Convert.ToChar(b.Text.ToLower());
-                b.Visible = false;
-                feladvany.Text = jatek.feladvany;
-                hibak.Text = jatek.hibaszam;
-               
-            
 
-        }
+        
+
+        
+        
 
 
     }

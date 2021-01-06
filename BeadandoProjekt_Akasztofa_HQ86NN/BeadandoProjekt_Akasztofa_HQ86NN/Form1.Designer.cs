@@ -33,6 +33,7 @@
             this.hibak = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.feladvany = new System.Windows.Forms.TextBox();
+            this.uzenet = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // ujjatek
@@ -43,7 +44,7 @@
             this.ujjatek.TabIndex = 0;
             this.ujjatek.Text = "új játék";
             this.ujjatek.UseVisualStyleBackColor = true;
-            this.ujjatek.Click += new System.EventHandler(this.ujjatek_Click);
+            this.ujjatek.Click += new System.EventHandler(this.ujjatek_Click_1);
             // 
             // label1
             // 
@@ -80,11 +81,20 @@
             this.feladvany.Size = new System.Drawing.Size(174, 31);
             this.feladvany.TabIndex = 4;
             // 
+            // uzenet
+            // 
+            this.uzenet.AutoSize = true;
+            this.uzenet.Location = new System.Drawing.Point(183, 75);
+            this.uzenet.Name = "uzenet";
+            this.uzenet.Size = new System.Drawing.Size(0, 13);
+            this.uzenet.TabIndex = 5;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(861, 519);
+            this.Controls.Add(this.uzenet);
             this.Controls.Add(this.feladvany);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.hibak);
@@ -92,6 +102,7 @@
             this.Controls.Add(this.ujjatek);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -104,6 +115,7 @@
         private System.Windows.Forms.TextBox hibak;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox feladvany;
+        private System.Windows.Forms.Label uzenet;
     }
 }
 

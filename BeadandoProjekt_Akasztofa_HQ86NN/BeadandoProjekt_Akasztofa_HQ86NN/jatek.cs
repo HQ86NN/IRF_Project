@@ -11,6 +11,7 @@ namespace BeadandoProjekt_Akasztofa_HQ86NN
         public string csillag = "", hibaszam = "", feladvany = "", uzenet = "";
         string kitalalando, seged = "";
         public int hibapont = 0;
+        int tippekszama = 0;
 
 
         public Jatek(string kitalalando)
@@ -32,7 +33,9 @@ namespace BeadandoProjekt_Akasztofa_HQ86NN
 
 
         void Ellenoriz()
-        { 
+        {
+            tippekszama++;
+            seged = "";
             for (int i = 0; i < kitalalando.Length; i++)
             {
                 if (tipp == kitalalando[i]) { seged += tipp; }
