@@ -9,14 +9,14 @@ namespace BeadandoProjekt_Akasztofa_HQ86NN
 {
     class GombTulajdonsagok : Button
     {
-        public int sor, oszlop, magassag, szelesseg;
+        /*public int sor, oszlop, magassag, szelesseg;
         public string karakter;
         GombTulajdonsagok[] gombok = new GombTulajdonsagok[47];
 
         GombTulajdonsagok tulajdonsag = new GombTulajdonsagok();
         gombok[i] = tulajdonsag;
 
-        tulajdonsag.sor = Convert.ToInt32(sr.ReadLine());
+        tulajdonsag.sor = Convert.ToInt32(sr.ReadLine());*/
     }
 
     

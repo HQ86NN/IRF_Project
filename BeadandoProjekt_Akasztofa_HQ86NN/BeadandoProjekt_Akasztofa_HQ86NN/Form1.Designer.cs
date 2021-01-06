@@ -28,13 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.ujjatek = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // ujjatek
+            // 
+            this.ujjatek.Location = new System.Drawing.Point(12, 12);
+            this.ujjatek.Name = "ujjatek";
+            this.ujjatek.Size = new System.Drawing.Size(89, 39);
+            this.ujjatek.TabIndex = 0;
+            this.ujjatek.Text = "új játék";
+            this.ujjatek.UseVisualStyleBackColor = true;
+            this.ujjatek.Click += new System.EventHandler(this.ujjatek_Click);
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ujjatek);
+            this.Name = "Form1";
             this.Text = "Form1";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button ujjatek;
     }
 }
 

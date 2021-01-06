@@ -13,43 +13,31 @@ namespace BeadandoProjekt_Akasztofa_HQ86NN
 {
     public partial class Form1 : Form
     {
+        int y, x;
+
         public Form1()
         {
             InitializeComponent();
-            StreamReader sr = new StreamReader("kbd_hun.txt", Encoding.Default);
-            int[] oszlop = new int[47];
-            int[] sor = new int[47];
-            int[] magasság = new int[47];
-            int[] szélesség = new int[47];
-            string[] karakter = new string[47];
+        }
 
-            for (int i = 0; i < 47; i++)
-            {
-                oszlop[i] = Convert.ToInt32(sr.ReadLine());
-                sor[i] = Convert.ToInt32(sr.ReadLine());
-                magasság[i] = Convert.ToInt32(sr.ReadLine());
-                szélesség[i] = Convert.ToInt32(sr.ReadLine());
-                karakter[i] = sr.ReadLine();
-            }
-            sr.Close();
-            MessageBox.Show(Convert.ToString(karakter[46]));
-
-
-            class GombTulajdonsagok
+        private void ujjatek_Click(object sender, EventArgs e)
         {
-            public int sor, oszlop, magassag, szelesseg;
-            public string karakter;
+            string abc = "AÁBCDEÉFGHIÍJKLMNOÓÖŐPQRSTUÚÜŰVWXYZ";
+            Button[] Billentyuk = new Button[35];
+            for (int i = 0; i < 35; i++)
+            {
+                Billentyuk[i] = new Button();
+                Billentyuk[i].Text = abc[i].ToString();
+                y = 300 + (i / 12) * 40;
+                Billentyuk[i].Width = 35;
+                Billentyuk[i].Height = 35;
+                Billentyuk[i].Tag = i;
+                x = 5 + (i % 12) * 40;
+                Billentyuk[i].Location = new Point(x, y);
+                // Gombok[i].Click += new EventHandler(MyButton_click);
+                Controls.Add(Billentyuk[i]);
+
+            }
         }
-
-        GombTulajdonsagok[] gombok = new GombTulajdonsagok[47];
-
-        GombTulajdonsagok tulajdonsag = new GombTulajdonsagok();
-
-
-        tulajdonsag.sor = Convert.ToInt32(sr.ReadLine());
-
-
-
-        }
-}
+    }
 }
