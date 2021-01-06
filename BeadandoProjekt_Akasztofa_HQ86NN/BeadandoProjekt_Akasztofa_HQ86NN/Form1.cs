@@ -37,7 +37,6 @@ namespace BeadandoProjekt_Akasztofa_HQ86NN
                 Billentyuk[i].Tag = i;
                 x = 5 + (i % 12) * 40;
                 Billentyuk[i].Location = new Point(x, y);
-                // Gombok[i].Click += new EventHandler(MyButton_click);
                 Controls.Add(Billentyuk[i]);
 
             }
