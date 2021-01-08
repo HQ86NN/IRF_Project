@@ -30,22 +30,17 @@ namespace BeadandoProjekt_Akasztofa_HQ86NN
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = this.CreateGraphics();
-            if (jatek != null)
-            {
-                akaszto.rajzol(g, jatek.hibapont);
-            }
-
-
-
+           if (jatek != null)
+           {
+                akaszto.Rajzol(g, jatek.hibapont);
+           }
         }
-
         string[] Betolt = File.ReadAllLines("feladvanyok.csv", Encoding.Default);
 
         public Form1()
         {
             InitializeComponent();
         }
-
         private void eredmenygomb_Click(object sender, EventArgs e)
         {
             try

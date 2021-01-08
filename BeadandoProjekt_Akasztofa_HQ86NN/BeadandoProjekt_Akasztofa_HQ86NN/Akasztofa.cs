@@ -13,7 +13,7 @@ namespace BeadandoProjekt_Akasztofa_HQ86NN
     {
         readonly Pen toll = new Pen(Color.Blue, 5);
 
-        public void rajzol(Graphics g, int hibapont)
+        public void Rajzol(Graphics g, int hibapont)
         {
 
             switch (hibapont)
